@@ -34,7 +34,10 @@
         }
         .movie-tile:hover {
             background-color: #333;
-            cursor: pointer;
+            
+        }
+        .play_cursor{
+          cursor:pointer;
         }
         .scale-media {
             padding-bottom: 56.25%;
@@ -49,17 +52,33 @@
             top: 0;
             background-color: white;
         }
-        .movie-reviews{
-          background-color: white;
-          display:none;
+        .thumbnail {
+          position:relative;
+          overflow:hidden;
+        } 
+       
+      .caption {
+          position:absolute;
+          top:0;
+          right:0;
+          background:rgba(240, 235, 174, 0.75);
+          width:100%;
+          height:100%;
+          padding:2%;
+          display: none;
+          text-align:center;
+          color:#333 !important;
+          z-index:2;
         }
-        .movie-tile:hover + .movie-reviews{
-          display : block;
+        .rating{
+          display: flex;
+          text-align : center;
+          margin-left: 60px;
         }
-        .movie-tile:hover{
-          display:none;
+        .thumbnail{
+          background-color : #333;
+          box-shadow : 0 10px 10px rgba(0,0,0,.075)
         }
-
         
     </style>
     <script type="text/javascript" charset="utf-8">
@@ -70,12 +89,10 @@
             $("#trailer-video-container").empty();
         });
         // Start playing the video whenever the trailer modal is opened
-        $(document).on('click', '.movie-tile', function (event) {
+        $(document).on('click', '.play-btn', function (event) {
             var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
             console.log(trailerYouTubeId)
-            
-            //$(this).attr('')
-            var id = '#' + trailerYouTubeId
+
             var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
             $("#trailer-video-container").empty().append($("<iframe></iframe>", {
               'id': 'trailer-video',
@@ -92,6 +109,17 @@
             $(this).next("div").show("fast", showNext);
           });
         });
+
+        $( document ).ready(function() {
+          $('.thumbnail').hover(
+              function(){
+                  $(this).find('.caption').slideDown(250); //.fadeIn(250)
+              },
+              function(){
+                  $(this).find('.caption').slideUp(250); //.fadeOut(205)
+              }
+          ); 
+       });
         
 
     </script>
@@ -108,7 +136,6 @@
             <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
           </a>
           <div class="scale-media" id="trailer-video-container">
-
           </div>
         </div>
       </div>
@@ -126,46 +153,130 @@
     </div>
     <div class="container">
       
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="oYSD2VQagc4" data-toggle="modal" data-target="#trailer">
-    <img class = "box-art" src="http://ia.media-imdb.com/images/M/MV5BMTkzMjEzMjY1M15BMl5BanBnXkFtZTcwNTMxOTYyOQ@@._V1_SX300.jpg" width="220" height="342">
-    
+<div class="col-md-6 col-lg-4 movie-tile play-btn text-center" data-trailer-youtube-id="oYSD2VQagc4" data-toggle="modal" data-target="#trailer">
+    <div class="thumbnail">
+        <div class="caption">
+          <h4>Iron Man 3</h4>
+          <p>When Tony Stark's world is torn apart by a formidable terrorist called the Mandarin, he starts an odyssey of rebuilding and retribution.</p>
+          <p class = "rating">      
+              <img src = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQZiXHTbTZdXm8fWpjdHc3obe2Dl2GJ5y7ymakh0vfhhFPL-JnS" 
+              width = "25%" height = "20%" style = "border-radius : 4px;"> 
+              <img src = "rating_star.png" width = "20%" height ="20%" style = "padding-left : 20px;">
+              <span style = "font-size : 25px; padding-top: 15px; padding-right : 20px;">7.2</span>  
+          </p>
+          <!-- play icon to inform the user about playing the trailer on clicking.--!>
+          <img class = "play-btn play_cursor" src = "play_icon.png" width = "20%" height = "20%" >
+        </div>
+        
+        <img class = "box-art" src="http://ia.media-imdb.com/images/M/MV5BMTkzMjEzMjY1M15BMl5BanBnXkFtZTcwNTMxOTYyOQ@@._V1_SX300.jpg" width="220" height="342"> 
+    </div>
     <h2>Iron Man 3</h2>
-    <p style = "float : bottom;">Story of the avenger Iron Man part-3</p>
+    
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="q6q_MfcDEEE" data-toggle="modal" data-target="#trailer">
-    <img class = "box-art" src="http://ia.media-imdb.com/images/M/MV5BMTQxNjc2NzAwNF5BMl5BanBnXkFtZTcwMDg3NzMzMw@@._V1_SX300.jpg" width="220" height="342">
-    
+<div class="col-md-6 col-lg-4 movie-tile play-btn text-center" data-trailer-youtube-id="q6q_MfcDEEE" data-toggle="modal" data-target="#trailer">
+    <div class="thumbnail">
+        <div class="caption">
+          <h4>Zodiac</h4>
+          <p>A San Francisco cartoonist becomes an amateur detective obsessed with tracking down the Zodiac killer</p>
+          <p class = "rating">      
+              <img src = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQZiXHTbTZdXm8fWpjdHc3obe2Dl2GJ5y7ymakh0vfhhFPL-JnS" 
+              width = "25%" height = "20%" style = "border-radius : 4px;"> 
+              <img src = "rating_star.png" width = "20%" height ="20%" style = "padding-left : 20px;">
+              <span style = "font-size : 25px; padding-top: 15px; padding-right : 20px;">7.7</span>  
+          </p>
+          <!-- play icon to inform the user about playing the trailer on clicking.--!>
+          <img class = "play-btn play_cursor" src = "play_icon.png" width = "20%" height = "20%" >
+        </div>
+        
+        <img class = "box-art" src="http://ia.media-imdb.com/images/M/MV5BMTQxNjc2NzAwNF5BMl5BanBnXkFtZTcwMDg3NzMzMw@@._V1_SX300.jpg" width="220" height="342"> 
+    </div>
     <h2>Zodiac</h2>
-    <p style = "float : bottom;">A San Francisco cartoonist becomes an amateur detective obsessed with tracking down the Zodiac killer</p>
+    
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="5PSNL1qE6VY" data-toggle="modal" data-target="#trailer">
-    <img class = "box-art" src="http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg" width="220" height="342">
-    
+<div class="col-md-6 col-lg-4 movie-tile play-btn text-center" data-trailer-youtube-id="5PSNL1qE6VY" data-toggle="modal" data-target="#trailer">
+    <div class="thumbnail">
+        <div class="caption">
+          <h4>Avatar</h4>
+          <p>A paraplegic marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home</p>
+          <p class = "rating">      
+              <img src = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQZiXHTbTZdXm8fWpjdHc3obe2Dl2GJ5y7ymakh0vfhhFPL-JnS" 
+              width = "25%" height = "20%" style = "border-radius : 4px;"> 
+              <img src = "rating_star.png" width = "20%" height ="20%" style = "padding-left : 20px;">
+              <span style = "font-size : 25px; padding-top: 15px; padding-right : 20px;">7.9</span>  
+          </p>
+          <!-- play icon to inform the user about playing the trailer on clicking.--!>
+          <img class = "play-btn play_cursor" src = "play_icon.png" width = "20%" height = "20%" >
+        </div>
+        
+        <img class = "box-art" src="http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg" width="220" height="342"> 
+    </div>
     <h2>Avatar</h2>
-    <p style = "float : bottom;">A paraplegic marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home</p>
+    
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="LoebZZ8K5N0" data-toggle="modal" data-target="#trailer">
-    <img class = "box-art" src="http://ia.media-imdb.com/images/M/MV5BMjU4NDExNDM1NF5BMl5BanBnXkFtZTgwMDIyMTgxNzE@._V1_SX300.jpg" width="220" height="342">
-    
+<div class="col-md-6 col-lg-4 movie-tile play-btn text-center" data-trailer-youtube-id="LoebZZ8K5N0" data-toggle="modal" data-target="#trailer">
+    <div class="thumbnail">
+        <div class="caption">
+          <h4>The Revenant</h4>
+          <p>A frontiersman on a fur trading expedition in the 1820s fights for survival after being mauled by a bear and left for dead by members of his own hunting team.</p>
+          <p class = "rating">      
+              <img src = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQZiXHTbTZdXm8fWpjdHc3obe2Dl2GJ5y7ymakh0vfhhFPL-JnS" 
+              width = "25%" height = "20%" style = "border-radius : 4px;"> 
+              <img src = "rating_star.png" width = "20%" height ="20%" style = "padding-left : 20px;">
+              <span style = "font-size : 25px; padding-top: 15px; padding-right : 20px;">8.1</span>  
+          </p>
+          <!-- play icon to inform the user about playing the trailer on clicking.--!>
+          <img class = "play-btn play_cursor" src = "play_icon.png" width = "20%" height = "20%" >
+        </div>
+        
+        <img class = "box-art" src="http://ia.media-imdb.com/images/M/MV5BMjU4NDExNDM1NF5BMl5BanBnXkFtZTgwMDIyMTgxNzE@._V1_SX300.jpg" width="220" height="342"> 
+    </div>
     <h2>The Revenant</h2>
-    <p style = "float : bottom;">A frontiersman on a fur trading expedition in the 1820s fights for survival after being mauled by a bear and left for dead by members of his own hunting team.</p>
+    
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="TZc39afdeXU" data-toggle="modal" data-target="#trailer">
-    <img class = "box-art" src="http://ia.media-imdb.com/images/M/MV5BMTU1MDA1MTYwMF5BMl5BanBnXkFtZTcwMDcxMzA1Mg@@._V1_SX300.jpg" width="220" height="342">
-    
+<div class="col-md-6 col-lg-4 movie-tile play-btn text-center" data-trailer-youtube-id="TZc39afdeXU" data-toggle="modal" data-target="#trailer">
+    <div class="thumbnail">
+        <div class="caption">
+          <h4>The Hangover</h4>
+          <p>Three buddies wake up from a bachelor party in Las Vegas, with no memory of the previous night and the bachelor missing.</p>
+          <p class = "rating">      
+              <img src = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQZiXHTbTZdXm8fWpjdHc3obe2Dl2GJ5y7ymakh0vfhhFPL-JnS" 
+              width = "25%" height = "20%" style = "border-radius : 4px;"> 
+              <img src = "rating_star.png" width = "20%" height ="20%" style = "padding-left : 20px;">
+              <span style = "font-size : 25px; padding-top: 15px; padding-right : 20px;">7.2</span>  
+          </p>
+          <!-- play icon to inform the user about playing the trailer on clicking.--!>
+          <img class = "play-btn play_cursor" src = "play_icon.png" width = "20%" height = "20%" >
+        </div>
+        
+        <img class = "box-art" src="http://ia.media-imdb.com/images/M/MV5BMTU1MDA1MTYwMF5BMl5BanBnXkFtZTcwMDcxMzA1Mg@@._V1_SX300.jpg" width="220" height="342"> 
+    </div>
     <h2>The Hangover</h2>
-    <p style = "float : bottom;">Three buddies wake up from a bachelor party in Las Vegas, with no memory of the previous night and the bachelor missing.</p>
+    
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="6VaCFcNGTHo" data-toggle="modal" data-target="#trailer">
-    <img class = "box-art" src="http://ia.media-imdb.com/images/M/MV5BMjA4NDI0MTIxNF5BMl5BanBnXkFtZTYwNTM0MzY2._V1_SX300.jpg" width="220" height="342">
-    
+<div class="col-md-6 col-lg-4 movie-tile play-btn text-center" data-trailer-youtube-id="6VaCFcNGTHo" data-toggle="modal" data-target="#trailer">
+    <div class="thumbnail">
+        <div class="caption">
+          <h4>The prestige</h4>
+          <p>Two stage magicians engage in competitive one-upmanship in an attempt to create the ultimate stage illusion.</p>
+          <p class = "rating">      
+              <img src = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQZiXHTbTZdXm8fWpjdHc3obe2Dl2GJ5y7ymakh0vfhhFPL-JnS" 
+              width = "25%" height = "20%" style = "border-radius : 4px;"> 
+              <img src = "rating_star.png" width = "20%" height ="20%" style = "padding-left : 20px;">
+              <span style = "font-size : 25px; padding-top: 15px; padding-right : 20px;">8.5</span>  
+          </p>
+          <!-- play icon to inform the user about playing the trailer on clicking.--!>
+          <img class = "play-btn play_cursor" src = "play_icon.png" width = "20%" height = "20%" >
+        </div>
+        
+        <img class = "box-art" src="http://ia.media-imdb.com/images/M/MV5BMjA4NDI0MTIxNF5BMl5BanBnXkFtZTYwNTM0MzY2._V1_SX300.jpg" width="220" height="342"> 
+    </div>
     <h2>The prestige</h2>
-    <p style = "float : bottom;">Two stage magicians engage in competitive one-upmanship in an attempt to create the ultimate stage illusion.</p>
+    
 </div>
 
     </div>

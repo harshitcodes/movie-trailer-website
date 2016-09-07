@@ -40,7 +40,10 @@ main_page_head = '''
         }
         .movie-tile:hover {
             background-color: #333;
-            cursor: pointer;
+            
+        }
+        .play_cursor{
+          cursor:pointer;
         }
         .scale-media {
             padding-bottom: 56.25%;
@@ -55,17 +58,33 @@ main_page_head = '''
             top: 0;
             background-color: white;
         }
-        .movie-reviews{
-          background-color: white;
-          display:none;
+        .thumbnail {
+          position:relative;
+          overflow:hidden;
+        } 
+       
+      .caption {
+          position:absolute;
+          top:0;
+          right:0;
+          background:rgba(240, 235, 174, 0.75);
+          width:100%;
+          height:100%;
+          padding:2%;
+          display: none;
+          text-align:center;
+          color:#333 !important;
+          z-index:2;
         }
-        .movie-tile:hover + .movie-reviews{
-          display : block;
+        .rating{
+          display: flex;
+          text-align : center;
+          margin-left: 60px;
         }
-        .movie-tile:hover{
-          display:none;
+        .thumbnail{
+          background-color : #333;
+          box-shadow : 0 10px 10px rgba(0,0,0,.075)
         }
-
         
     </style>
     <script type="text/javascript" charset="utf-8">
@@ -76,12 +95,10 @@ main_page_head = '''
             $("#trailer-video-container").empty();
         });
         // Start playing the video whenever the trailer modal is opened
-        $(document).on('click', '.movie-tile', function (event) {
+        $(document).on('click', '.play-btn', function (event) {
             var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
             console.log(trailerYouTubeId)
-            
-            //$(this).attr('')
-            var id = '#' + trailerYouTubeId
+
             var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
             $("#trailer-video-container").empty().append($("<iframe></iframe>", {
               'id': 'trailer-video',
@@ -98,6 +115,17 @@ main_page_head = '''
             $(this).next("div").show("fast", showNext);
           });
         });
+
+        $( document ).ready(function() {
+          $('.thumbnail').hover(
+              function(){
+                  $(this).find('.caption').slideDown(250); //.fadeIn(250)
+              },
+              function(){
+                  $(this).find('.caption').slideUp(250); //.fadeOut(205)
+              }
+          ); 
+       });
         
 
     </script>
@@ -117,7 +145,6 @@ main_page_content = '''
             <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
           </a>
           <div class="scale-media" id="trailer-video-container">
-
           </div>
         </div>
       </div>
@@ -140,20 +167,28 @@ main_page_content = '''
 </html>
 '''
 
-# A single movie entry html template
-info_content = '''
-<div class = "info" id = "{trailer_youtube_id}">
-  <h3>{movie_title}</h3>
-  <p>{movie_storyline}</p>
-</div>  
-'''
+
 
 movie_tile_content = '''
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
-    <img class = "box-art" src="{poster_image_url}" width="220" height="342">
-    
+<div class="col-md-6 col-lg-4 movie-tile play-btn text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
+    <div class="thumbnail">
+        <div class="caption">
+          <h4>{movie_title}</h4>
+          <p>{movie_storyline}</p>
+          <p class = "rating">      
+              <img src = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQZiXHTbTZdXm8fWpjdHc3obe2Dl2GJ5y7ymakh0vfhhFPL-JnS" 
+              width = "25%" height = "20%" style = "border-radius : 4px;"> 
+              <img src = "rating_star.png" width = "20%" height ="20%" style = "padding-left : 20px;">
+              <span style = "font-size : 25px; padding-top: 15px; padding-right : 20px;">{movie_rating}</span>  
+          </p>
+          <!-- play icon to inform the user about playing the trailer on clicking.--!>
+          <img class = "play-btn play_cursor" src = "play_icon.png" width = "20%" height = "20%" >
+        </div>
+        
+        <img class = "box-art" src="{poster_image_url}" width="220" height="342"> 
+    </div>
     <h2>{movie_title}</h2>
-    <p style = "float : bottom;">{movie_storyline}</p>
+    
 </div>
 '''
 
@@ -172,7 +207,8 @@ def create_movie_tiles_content(movies):
             movie_title=movie.title,
             poster_image_url=movie.poster_image_url,
             trailer_youtube_id=trailer_youtube_id,
-            movie_storyline=movie.storyline
+            movie_storyline=movie.storyline,
+            movie_rating=movie.rating
         )
     return content
 
