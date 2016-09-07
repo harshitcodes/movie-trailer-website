@@ -10,6 +10,12 @@ Clone the repository : [https://github.com/harshitcodes/movie-trailer-website](h
 ```
 git clone https://github.com/harshitcodes/movie-trailer-website
 ```
+
+Cd into the movie-trailer-website directory
+```
+cd movie-trailer-website
+```
+
 Then use python command to run the box_office.py
 ```
 python box_office.py
@@ -17,3 +23,12 @@ python box_office.py
 And you have the Blockbuster Trailers live in your web browser.
 
 
+## Modules
+
+fresh_tomatoes
+--------------
+It renders the content of movies through an html file called fresh_tomatoes.html which is rendered using the webbrowser module.
+
+media
+-----
+It contains the server-side code which is the blue-print for the data to be stored using python data structure.
