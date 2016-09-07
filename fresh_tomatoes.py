@@ -40,7 +40,6 @@ main_page_head = '''
         }
         .movie-tile:hover {
             background-color: #333;
-            
         }
         .play_cursor{
           cursor:pointer;
@@ -61,8 +60,7 @@ main_page_head = '''
         .thumbnail {
           position:relative;
           overflow:hidden;
-        } 
-       
+        }
       .caption {
           position:absolute;
           top:0;
@@ -85,12 +83,13 @@ main_page_head = '''
           background-color : #333;
           box-shadow : 0 10px 10px rgba(0,0,0,.075)
         }
-        
     </style>
     <script type="text/javascript" charset="utf-8">
         // Pause the video when the modal is closed
-        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
-            // Remove the src so the player itself gets removed, as this is the only
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal',\
+         function (event) {
+            // Remove the src so the player itself gets removed,\
+             as this is the only
             // reliable way to ensure the video stops playing in IE
             $("#trailer-video-container").empty();
         });
@@ -99,16 +98,17 @@ main_page_head = '''
             var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
             console.log(trailerYouTubeId)
 
-            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
-            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId\
+             + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>",\
+             {
               'id': 'trailer-video',
               'type': 'text-html',
               'src': sourceUrl,
               'frameborder': 0
             }));
-            
-            
         });
+
         // Animate in the movies when the page loads
         $(document).ready(function () {
           $('.movie-tile').hide().first().show("fast", function showNext() {
@@ -124,10 +124,8 @@ main_page_head = '''
               function(){
                   $(this).find('.caption').slideUp(250); //.fadeOut(205)
               }
-          ); 
+          );
        });
-        
-
     </script>
 </head>
 '''
@@ -141,8 +139,9 @@ main_page_content = '''
     <div class="modal" id="trailer">
       <div class="modal-dialog">
         <div class="modal-content">
-          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
-            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          <a href="#" class="hanging-close" data-dismiss="modal"\
+           aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>  # noqa
           </a>
           <div class="scale-media" id="trailer-video-container">
           </div>
@@ -167,30 +166,31 @@ main_page_content = '''
 </html>
 '''
 
-
-
-movie_tile_content = '''
-<div class="col-md-6 col-lg-4 movie-tile play-btn text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
+movie_tile_content = ''' <div class="col-md-6 col-lg-4 movie-tile play-btn text-center" data-trailer-youtube-id="{trailer_youtube_id}"\
+  data-toggle="modal" data-target="#trailer">
     <div class="thumbnail">
         <div class="caption">
           <h4>{movie_title}</h4>
           <p>{movie_storyline}</p>
-          <p class = "rating">      
-              <img src = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQZiXHTbTZdXm8fWpjdHc3obe2Dl2GJ5y7ymakh0vfhhFPL-JnS" 
-              width = "25%" height = "20%" style = "border-radius : 4px;"> 
-              <img src = "rating_star.png" width = "20%" height ="20%" style = "padding-left : 20px;">
-              <span style = "font-size : 25px; padding-top: 15px; padding-right : 20px;">{movie_rating}</span>  
+          <p class = "rating">
+              <img src = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQZiXHTbTZdXm8fWpjdHc3obe2Dl2GJ5y7ymakh0vfhhFPL-JnS"  # noqa 
+              width = "25%" height = "20%" style = "border-radius : 4px;">
+              <img src = "rating_star.png" width = "20%" height ="20%"
+              style ="padding-left : 20px;">
+              <span style = "font-size : 25px; padding-top: 15px;
+              padding-right : 20px;">{movie_rating}</span> 
           </p>
           <!-- play icon to inform the user about playing the trailer on clicking.--!>
-          <img class = "play-btn play_cursor" src = "play_icon.png" width = "20%" height = "20%" >
+          <img class = "play-btn play_cursor" src = "play_icon.png"
+           width = "20%" height = "20%" >
         </div>
-        
-        <img class = "box-art" src="{poster_image_url}" width="220" height="342"> 
+        <img class = "box-art" src="{poster_image_url}"
+        width="220" height="342">
     </div>
     <h2>{movie_title}</h2>
-    
 </div>
 '''
+
 
 def create_movie_tiles_content(movies):
     # The HTML content for this section of the page
@@ -198,9 +198,11 @@ def create_movie_tiles_content(movies):
     modal_content = ''
     for movie in movies:
         # Extract the youtube ID from the url
-        youtube_id_match = re.search(r'(?<=v=)[^&#]+', movie.trailer_youtube_url)
-        youtube_id_match = youtube_id_match or re.search(r'(?<=be/)[^&#]+', movie.trailer_youtube_url)
-        trailer_youtube_id = youtube_id_match.group(0) if youtube_id_match else None
+        youtube_id_match = re.search(r'(?<=v=)[^&#]+',
+                                     movie.trailer_youtube_url)
+        youtube_id_match = youtube_id_match or\
+            re.search(r'(?<=be/)[^&#]+', movie.trailer_youtube_url)
+        trailer_youtube_id = youtube_id_match.group(0) if youtube_id_match else None  # noqa
 
         # Append the tile for the movie with its content filled in
         content += movie_tile_content.format(
@@ -212,17 +214,20 @@ def create_movie_tiles_content(movies):
         )
     return content
 
+
 def open_movies_page(movies):
-  # Create or overwrite the output file
-  output_file = open('fresh_tomatoes.html', 'w')
+    # Create or overwrite the output file
+    output_file = open('fresh_tomatoes.html', 'w')
 
-  # Replace the placeholder for the movie tiles with the actual dynamically generated content
-  rendered_content = main_page_content.format(movie_tiles=create_movie_tiles_content(movies))
+    # Replace the placeholder for the movie tiles with the actual dynamically\
+    # generated content
+    rendered_content = main_page_content.format(
+      movie_tiles=create_movie_tiles_content(movies))
 
-  # Output the file
-  output_file.write(main_page_head + rendered_content)
-  output_file.close()
+    # Output the file
+    output_file.write(main_page_head + rendered_content)
+    output_file.close()
 
-  # open the output file in the browser
-  url = os.path.abspath(output_file.name)
-  webbrowser.open('file://' + url, new=2) # open in a new tab, if possible
+    # open the output file in the browser
+    url = os.path.abspath(output_file.name)
+    webbrowser.open('file://' + url, new=2)  # open in a new tab, if possible

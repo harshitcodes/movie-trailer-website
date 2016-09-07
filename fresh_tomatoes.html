@@ -34,7 +34,6 @@
         }
         .movie-tile:hover {
             background-color: #333;
-            
         }
         .play_cursor{
           cursor:pointer;
@@ -55,8 +54,7 @@
         .thumbnail {
           position:relative;
           overflow:hidden;
-        } 
-       
+        }
       .caption {
           position:absolute;
           top:0;
@@ -79,12 +77,11 @@
           background-color : #333;
           box-shadow : 0 10px 10px rgba(0,0,0,.075)
         }
-        
     </style>
     <script type="text/javascript" charset="utf-8">
         // Pause the video when the modal is closed
-        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
-            // Remove the src so the player itself gets removed, as this is the only
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal',         function (event) {
+            // Remove the src so the player itself gets removed,             as this is the only
             // reliable way to ensure the video stops playing in IE
             $("#trailer-video-container").empty();
         });
@@ -93,16 +90,15 @@
             var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
             console.log(trailerYouTubeId)
 
-            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
-            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId             + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>",             {
               'id': 'trailer-video',
               'type': 'text-html',
               'src': sourceUrl,
               'frameborder': 0
             }));
-            
-            
         });
+
         // Animate in the movies when the page loads
         $(document).ready(function () {
           $('.movie-tile').hide().first().show("fast", function showNext() {
@@ -118,10 +114,8 @@
               function(){
                   $(this).find('.caption').slideUp(250); //.fadeOut(205)
               }
-          ); 
+          );
        });
-        
-
     </script>
 </head>
 
@@ -132,8 +126,8 @@
     <div class="modal" id="trailer">
       <div class="modal-dialog">
         <div class="modal-content">
-          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
-            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          <a href="#" class="hanging-close" data-dismiss="modal"           aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>  # noqa
           </a>
           <div class="scale-media" id="trailer-video-container">
           </div>
@@ -152,131 +146,137 @@
       </div>
     </div>
     <div class="container">
-      
-<div class="col-md-6 col-lg-4 movie-tile play-btn text-center" data-trailer-youtube-id="oYSD2VQagc4" data-toggle="modal" data-target="#trailer">
+       <div class="col-md-6 col-lg-4 movie-tile play-btn text-center" data-trailer-youtube-id="oYSD2VQagc4"  data-toggle="modal" data-target="#trailer">
     <div class="thumbnail">
         <div class="caption">
           <h4>Iron Man 3</h4>
           <p>When Tony Stark's world is torn apart by a formidable terrorist called the Mandarin, he starts an odyssey of rebuilding and retribution.</p>
-          <p class = "rating">      
-              <img src = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQZiXHTbTZdXm8fWpjdHc3obe2Dl2GJ5y7ymakh0vfhhFPL-JnS" 
-              width = "25%" height = "20%" style = "border-radius : 4px;"> 
-              <img src = "rating_star.png" width = "20%" height ="20%" style = "padding-left : 20px;">
-              <span style = "font-size : 25px; padding-top: 15px; padding-right : 20px;">7.2</span>  
+          <p class = "rating">
+              <img src = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQZiXHTbTZdXm8fWpjdHc3obe2Dl2GJ5y7ymakh0vfhhFPL-JnS"  # noqa 
+              width = "25%" height = "20%" style = "border-radius : 4px;">
+              <img src = "rating_star.png" width = "20%" height ="20%"
+              style ="padding-left : 20px;">
+              <span style = "font-size : 25px; padding-top: 15px;
+              padding-right : 20px;">7.2</span> 
           </p>
           <!-- play icon to inform the user about playing the trailer on clicking.--!>
-          <img class = "play-btn play_cursor" src = "play_icon.png" width = "20%" height = "20%" >
+          <img class = "play-btn play_cursor" src = "play_icon.png"
+           width = "20%" height = "20%" >
         </div>
-        
-        <img class = "box-art" src="http://ia.media-imdb.com/images/M/MV5BMTkzMjEzMjY1M15BMl5BanBnXkFtZTcwNTMxOTYyOQ@@._V1_SX300.jpg" width="220" height="342"> 
+        <img class = "box-art" src="http://ia.media-imdb.com/images/M/MV5BMTkzMjEzMjY1M15BMl5BanBnXkFtZTcwNTMxOTYyOQ@@._V1_SX300.jpg"
+        width="220" height="342">
     </div>
     <h2>Iron Man 3</h2>
-    
 </div>
-
-<div class="col-md-6 col-lg-4 movie-tile play-btn text-center" data-trailer-youtube-id="q6q_MfcDEEE" data-toggle="modal" data-target="#trailer">
+ <div class="col-md-6 col-lg-4 movie-tile play-btn text-center" data-trailer-youtube-id="q6q_MfcDEEE"  data-toggle="modal" data-target="#trailer">
     <div class="thumbnail">
         <div class="caption">
           <h4>Zodiac</h4>
           <p>A San Francisco cartoonist becomes an amateur detective obsessed with tracking down the Zodiac killer</p>
-          <p class = "rating">      
-              <img src = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQZiXHTbTZdXm8fWpjdHc3obe2Dl2GJ5y7ymakh0vfhhFPL-JnS" 
-              width = "25%" height = "20%" style = "border-radius : 4px;"> 
-              <img src = "rating_star.png" width = "20%" height ="20%" style = "padding-left : 20px;">
-              <span style = "font-size : 25px; padding-top: 15px; padding-right : 20px;">7.7</span>  
+          <p class = "rating">
+              <img src = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQZiXHTbTZdXm8fWpjdHc3obe2Dl2GJ5y7ymakh0vfhhFPL-JnS"  # noqa 
+              width = "25%" height = "20%" style = "border-radius : 4px;">
+              <img src = "rating_star.png" width = "20%" height ="20%"
+              style ="padding-left : 20px;">
+              <span style = "font-size : 25px; padding-top: 15px;
+              padding-right : 20px;">7.7</span> 
           </p>
           <!-- play icon to inform the user about playing the trailer on clicking.--!>
-          <img class = "play-btn play_cursor" src = "play_icon.png" width = "20%" height = "20%" >
+          <img class = "play-btn play_cursor" src = "play_icon.png"
+           width = "20%" height = "20%" >
         </div>
-        
-        <img class = "box-art" src="http://ia.media-imdb.com/images/M/MV5BMTQxNjc2NzAwNF5BMl5BanBnXkFtZTcwMDg3NzMzMw@@._V1_SX300.jpg" width="220" height="342"> 
+        <img class = "box-art" src="http://ia.media-imdb.com/images/M/MV5BMTQxNjc2NzAwNF5BMl5BanBnXkFtZTcwMDg3NzMzMw@@._V1_SX300.jpg"
+        width="220" height="342">
     </div>
     <h2>Zodiac</h2>
-    
 </div>
-
-<div class="col-md-6 col-lg-4 movie-tile play-btn text-center" data-trailer-youtube-id="5PSNL1qE6VY" data-toggle="modal" data-target="#trailer">
+ <div class="col-md-6 col-lg-4 movie-tile play-btn text-center" data-trailer-youtube-id="5PSNL1qE6VY"  data-toggle="modal" data-target="#trailer">
     <div class="thumbnail">
         <div class="caption">
           <h4>Avatar</h4>
           <p>A paraplegic marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home</p>
-          <p class = "rating">      
-              <img src = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQZiXHTbTZdXm8fWpjdHc3obe2Dl2GJ5y7ymakh0vfhhFPL-JnS" 
-              width = "25%" height = "20%" style = "border-radius : 4px;"> 
-              <img src = "rating_star.png" width = "20%" height ="20%" style = "padding-left : 20px;">
-              <span style = "font-size : 25px; padding-top: 15px; padding-right : 20px;">7.9</span>  
+          <p class = "rating">
+              <img src = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQZiXHTbTZdXm8fWpjdHc3obe2Dl2GJ5y7ymakh0vfhhFPL-JnS"  # noqa 
+              width = "25%" height = "20%" style = "border-radius : 4px;">
+              <img src = "rating_star.png" width = "20%" height ="20%"
+              style ="padding-left : 20px;">
+              <span style = "font-size : 25px; padding-top: 15px;
+              padding-right : 20px;">7.9</span> 
           </p>
           <!-- play icon to inform the user about playing the trailer on clicking.--!>
-          <img class = "play-btn play_cursor" src = "play_icon.png" width = "20%" height = "20%" >
+          <img class = "play-btn play_cursor" src = "play_icon.png"
+           width = "20%" height = "20%" >
         </div>
-        
-        <img class = "box-art" src="http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg" width="220" height="342"> 
+        <img class = "box-art" src="http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg"
+        width="220" height="342">
     </div>
     <h2>Avatar</h2>
-    
 </div>
-
-<div class="col-md-6 col-lg-4 movie-tile play-btn text-center" data-trailer-youtube-id="LoebZZ8K5N0" data-toggle="modal" data-target="#trailer">
+ <div class="col-md-6 col-lg-4 movie-tile play-btn text-center" data-trailer-youtube-id="LoebZZ8K5N0"  data-toggle="modal" data-target="#trailer">
     <div class="thumbnail">
         <div class="caption">
           <h4>The Revenant</h4>
-          <p>A frontiersman on a fur trading expedition in the 1820s fights for survival after being mauled by a bear and left for dead by members of his own hunting team.</p>
-          <p class = "rating">      
-              <img src = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQZiXHTbTZdXm8fWpjdHc3obe2Dl2GJ5y7ymakh0vfhhFPL-JnS" 
-              width = "25%" height = "20%" style = "border-radius : 4px;"> 
-              <img src = "rating_star.png" width = "20%" height ="20%" style = "padding-left : 20px;">
-              <span style = "font-size : 25px; padding-top: 15px; padding-right : 20px;">8.1</span>  
+          <p>A frontiersman on a fur trading expedition in the 1820s fights for survival after being mauled by a bear and left for dead by members of his own hunting team</p>
+          <p class = "rating">
+              <img src = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQZiXHTbTZdXm8fWpjdHc3obe2Dl2GJ5y7ymakh0vfhhFPL-JnS"  # noqa 
+              width = "25%" height = "20%" style = "border-radius : 4px;">
+              <img src = "rating_star.png" width = "20%" height ="20%"
+              style ="padding-left : 20px;">
+              <span style = "font-size : 25px; padding-top: 15px;
+              padding-right : 20px;">8.1</span> 
           </p>
           <!-- play icon to inform the user about playing the trailer on clicking.--!>
-          <img class = "play-btn play_cursor" src = "play_icon.png" width = "20%" height = "20%" >
+          <img class = "play-btn play_cursor" src = "play_icon.png"
+           width = "20%" height = "20%" >
         </div>
-        
-        <img class = "box-art" src="http://ia.media-imdb.com/images/M/MV5BMjU4NDExNDM1NF5BMl5BanBnXkFtZTgwMDIyMTgxNzE@._V1_SX300.jpg" width="220" height="342"> 
+        <img class = "box-art" src="http://ia.media-imdb.com/images/M/MV5BMjU4NDExNDM1NF5BMl5BanBnXkFtZTgwMDIyMTgxNzE@._V1_SX300.jpg"
+        width="220" height="342">
     </div>
     <h2>The Revenant</h2>
-    
 </div>
-
-<div class="col-md-6 col-lg-4 movie-tile play-btn text-center" data-trailer-youtube-id="TZc39afdeXU" data-toggle="modal" data-target="#trailer">
+ <div class="col-md-6 col-lg-4 movie-tile play-btn text-center" data-trailer-youtube-id="TZc39afdeXU"  data-toggle="modal" data-target="#trailer">
     <div class="thumbnail">
         <div class="caption">
           <h4>The Hangover</h4>
           <p>Three buddies wake up from a bachelor party in Las Vegas, with no memory of the previous night and the bachelor missing.</p>
-          <p class = "rating">      
-              <img src = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQZiXHTbTZdXm8fWpjdHc3obe2Dl2GJ5y7ymakh0vfhhFPL-JnS" 
-              width = "25%" height = "20%" style = "border-radius : 4px;"> 
-              <img src = "rating_star.png" width = "20%" height ="20%" style = "padding-left : 20px;">
-              <span style = "font-size : 25px; padding-top: 15px; padding-right : 20px;">7.2</span>  
+          <p class = "rating">
+              <img src = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQZiXHTbTZdXm8fWpjdHc3obe2Dl2GJ5y7ymakh0vfhhFPL-JnS"  # noqa 
+              width = "25%" height = "20%" style = "border-radius : 4px;">
+              <img src = "rating_star.png" width = "20%" height ="20%"
+              style ="padding-left : 20px;">
+              <span style = "font-size : 25px; padding-top: 15px;
+              padding-right : 20px;">7.2</span> 
           </p>
           <!-- play icon to inform the user about playing the trailer on clicking.--!>
-          <img class = "play-btn play_cursor" src = "play_icon.png" width = "20%" height = "20%" >
+          <img class = "play-btn play_cursor" src = "play_icon.png"
+           width = "20%" height = "20%" >
         </div>
-        
-        <img class = "box-art" src="http://ia.media-imdb.com/images/M/MV5BMTU1MDA1MTYwMF5BMl5BanBnXkFtZTcwMDcxMzA1Mg@@._V1_SX300.jpg" width="220" height="342"> 
+        <img class = "box-art" src="http://ia.media-imdb.com/images/M/MV5BMTU1MDA1MTYwMF5BMl5BanBnXkFtZTcwMDcxMzA1Mg@@._V1_SX300.jpg"
+        width="220" height="342">
     </div>
     <h2>The Hangover</h2>
-    
 </div>
-
-<div class="col-md-6 col-lg-4 movie-tile play-btn text-center" data-trailer-youtube-id="6VaCFcNGTHo" data-toggle="modal" data-target="#trailer">
+ <div class="col-md-6 col-lg-4 movie-tile play-btn text-center" data-trailer-youtube-id="6VaCFcNGTHo"  data-toggle="modal" data-target="#trailer">
     <div class="thumbnail">
         <div class="caption">
           <h4>The prestige</h4>
           <p>Two stage magicians engage in competitive one-upmanship in an attempt to create the ultimate stage illusion.</p>
-          <p class = "rating">      
-              <img src = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQZiXHTbTZdXm8fWpjdHc3obe2Dl2GJ5y7ymakh0vfhhFPL-JnS" 
-              width = "25%" height = "20%" style = "border-radius : 4px;"> 
-              <img src = "rating_star.png" width = "20%" height ="20%" style = "padding-left : 20px;">
-              <span style = "font-size : 25px; padding-top: 15px; padding-right : 20px;">8.5</span>  
+          <p class = "rating">
+              <img src = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQZiXHTbTZdXm8fWpjdHc3obe2Dl2GJ5y7ymakh0vfhhFPL-JnS"  # noqa 
+              width = "25%" height = "20%" style = "border-radius : 4px;">
+              <img src = "rating_star.png" width = "20%" height ="20%"
+              style ="padding-left : 20px;">
+              <span style = "font-size : 25px; padding-top: 15px;
+              padding-right : 20px;">8.5</span> 
           </p>
           <!-- play icon to inform the user about playing the trailer on clicking.--!>
-          <img class = "play-btn play_cursor" src = "play_icon.png" width = "20%" height = "20%" >
+          <img class = "play-btn play_cursor" src = "play_icon.png"
+           width = "20%" height = "20%" >
         </div>
-        
-        <img class = "box-art" src="http://ia.media-imdb.com/images/M/MV5BMjA4NDI0MTIxNF5BMl5BanBnXkFtZTYwNTM0MzY2._V1_SX300.jpg" width="220" height="342"> 
+        <img class = "box-art" src="http://ia.media-imdb.com/images/M/MV5BMjA4NDI0MTIxNF5BMl5BanBnXkFtZTYwNTM0MzY2._V1_SX300.jpg"
+        width="220" height="342">
     </div>
     <h2>The prestige</h2>
-    
 </div>
 
     </div>
