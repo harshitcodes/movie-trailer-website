@@ -5,7 +5,9 @@ Runs favorite movie trailer on youtube in a bootstrap modal.
 The project helps to learn basic programming concepts of python and Object Oriented Programming. By building a website which entails several movies and their information stored in a python class inside a module called media. [fresh_tomatoes](https://github.com/harshitcodes/movie-trailer-website/blob/master/fresh_tomatoes.py) is the module which takes the information from the [box-office.py](https://github.com/harshitcodes/movie-trailer-website/blob/master/box_office.py) file and creates the webpage which renders all the movies with their information like box-imagery, trailer url, storyline,etc.
 
 ### Screenshots
-![alt screenshots](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![alt screenshots](https://github.com/harshitcodes/movie-trailer-website/blob/master/Screenshot%20from%202016-09-07%2017-50-59.png "Full screenshot")
+![alt screenshots](https://github.com/harshitcodes/movie-trailer-website/blob/master/Screenshot%20from%202016-09-07%2017-52-50.png "On hover screenshot")
+
 
 
 ## Installation
