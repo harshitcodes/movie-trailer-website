@@ -26,7 +26,7 @@ Then use python command to run the box_office.py
 ```
 python box_office.py
 ```
-And you have the Blockbuster Trailers live in your web browser.
+And you have the Blockbuster Trailers live in your web browser. Click on the play button to play the desired movie trailer.
 
 
 ## Modules
